@@ -7,9 +7,10 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:@fuxxy-star/baileys",
+    "@whiskeysockets/baileys": "npm:baileys-mod",
     "express": "^4.19.2",
     "pino": "^9.5.0",
     "cors": "^2.8.5"
   }
+
 }
