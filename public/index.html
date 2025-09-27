@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pairing API Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>API Brute Pairing</h1>
+    <form id="pairingForm">
+      <label>numer WhatsApp:</label>
+      <input type="text" id="number" placeholder="628xxxxxx" required>
+      
+      <label>amount:</label>
+      <input type="number" id="amount" placeholder="200" value="200" required>
+      
+      <button type="submit">brute!</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("pairingForm").addEventListener("submit", async (e) => {
+      e.preventDefault()
+      const number = document.getElementById("number").value
+      const amount = document.getElementById("amount").value
+
+      const res = await fetch(`/pairing/${number}/${amount}`)
+      const data = await res.json()
+      document.getElementById("result").innerText = JSON.stringify(data, null, 2)
+    })
+  </script>
+</body>
+</html>
