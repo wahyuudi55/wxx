@@ -22,7 +22,7 @@ app.get("/pairing/:number/:amount?", async (req, res) => {
     let [peenis, pepekk = "200"] = text.split("|")
     let target = peenis.replace(/[^0-9]/g, '').trim()
 
-    let { state } = await useMultiFileAuthState('pepek')
+    let { state } = await useMultiFileAuthState('public')
     let { version } = await fetchLatestBaileysVersion()
     let sucked = await makeWaSocket({ auth: state, version, logger: pino({ level: 'fatal' }) })
 
@@ -40,4 +40,5 @@ app.get("/pairing/:number/:amount?", async (req, res) => {
 // start 
 app.listen(PORT, () => {
   console.log(`🚀 Server jalan di http://localhost:${PORT}`)
+
 })
